@@ -1,29 +1,47 @@
-let counter = 0
-function count(){
-    if (document.querySelector("h2").innerHTML==="I HAVE LEFT"){
-        alert("NOT AVAILABLE PLEASE WAIT!");
-    }else {
-        counter += 1
-    // alert(counter);
-        const countValue = document.querySelector("h1").innerHTML = counter
+document.addEventListener("DOMContentLoaded", function(){
+    const available =document.querySelector("h3");
+    function availability(){
+        if(available.innerHTML === "ONLINE"){
+            available.innerHTML = "OFLINE";
+        }else{
+            available.innerHTML = "ONLINE";
+        }
     }
-    
-}
-function hello(){
-    // alert("hello, world");
-    if (document.querySelector("h2").innerHTML === "I AM HERE"){
-        document.querySelector("h2").innerHTML = "I HAVE LEFT not";
-    } else{
-        document.querySelector("h2").innerHTML = "I AM HERE";
+    const countValue =document.querySelector("h1");
+    counter = 0
+    function count(){
+        if(available.innerHTML === "ONLINE"){
+            counter += 1;
+            countValue.innerHTML=counter;
+            if (counter % 10 ==0){
+                alert(`Count Has Reached ${counter}`);
+            }
+        }
+        else{
+            alert("NOT AVAILABLE PLEASE WAIT!");
+        }
     }
-}
-function helloModified(){
-    // creating variables for functions
-    let heading = document.querySelector("h2");
-    //instead of let you can use "const" to make it unchangeable
-    if (heading.innerHTML === "I AM HERE"){
-        heading.innerHTML = "I HAVE LEFT";
-    } else{
-        heading.innerHTML = "I AM HERE";
+    document.querySelector("form").onsubmit = function(){
+        const name=document.querySelector("#name").value
+        alert(`hello ${name}!`);
+        alert("Form Submitted Successfully!")
     }
-}
+    document.querySelector("#count").onclick = count
+    document.querySelector("#available").onclick = availability
+
+    document.querySelector("#yellow").onclick = function(){
+        document.querySelector("#tag").style.color="yellow"
+    }
+    document.querySelector("#red").onclick = function(){
+        document.querySelector("#tag").style.color="red"
+    }
+    document.querySelector("#blue").onclick = function(){
+        document.querySelector("#tag").style.color="blue"
+    }
+    document.querySelectorAll("button").forEach(function(button){
+        button.onclick = function(){
+            document.querySelector("#tag").style.color=button.dataset.color;
+        }
+        
+    });
+})
