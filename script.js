@@ -8,12 +8,12 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     }
     const countValue =document.querySelector("h1");
-    counter = 0
+    let counter = 0
     function count(){
         if(available.innerHTML === "ONLINE"){
             counter += 1;
             countValue.innerHTML=counter;
-            if (counter % 10 ==0){
+            if (counter % 1000 ==0){
                 alert(`Count Has Reached ${counter}`);
             }
         }
@@ -25,9 +25,11 @@ document.addEventListener("DOMContentLoaded", function(){
         const name=document.querySelector("#name").value
         alert(`hello ${name}!`);
         alert("Form Submitted Successfully!")
+        return false;
     }
     document.querySelector("#count").onclick = count
     document.querySelector("#available").onclick = availability
+    setInterval(count, 1000);
 
     document.querySelector("#yellow").onclick = function(){
         document.querySelector("#tag").style.color="yellow"
@@ -38,10 +40,14 @@ document.addEventListener("DOMContentLoaded", function(){
     document.querySelector("#blue").onclick = function(){
         document.querySelector("#tag").style.color="blue"
     }
-    document.querySelectorAll("button").forEach(function(button){
-        button.onclick = function(){
-            document.querySelector("#tag").style.color=button.dataset.color;
-        }
+    document.querySelector("select").onchange = function() {
+        document.querySelector("#tag").style.color=this.value;
+    }
+    // other events include; onclick, onmouseover, onkeyup, onkeydown, onload, onblur etc
+    // document.querySelector(".dc").forEach(function(button){
+    //     button.onclick = function(){
+    //         document.querySelector("#tag").style.color=button.dataset.color;
+    //     }
         
-    });
-})
+    // });
+});
