@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     }
     const countValue =document.querySelector("h1");
-    let counter = 0
+    let   counter = 0
     function count(){
         if(available.innerHTML === "ONLINE"){
             counter += 1;
