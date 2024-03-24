@@ -28,6 +28,17 @@ body {
     flex-direction: column;
     align-items: center;
 }
+.previewContainer, .printContent{
+    /* position: absolute; */
+    /* max-width: 6000px; */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
 .container {
     /* position: absolute; */
     /* max-width: 6000px; */
@@ -38,6 +49,26 @@ body {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
+}
+.containerSR{
+    /* position: absolute; */
+    display: inline-flex;
+    flex-direction: row;
+}
+.containerPB{
+    /* position: absolute; */
+    display: inline-flex;
+    flex-direction: row;
+}
+.containerDS{
+    /* position: absolute; */
+    display: inline-flex;
+    flex-direction: row;
+}
+.figureContent{
+    /* position: absolute; */
+    display: inline-flex;
+    flex-direction: row;
 }
 
 /* App heading styles */
@@ -53,7 +84,7 @@ body {
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
-    text-align: center;
+    /* text-align: center; */
     text-decoration: none;
     color: #ffffff;
     border: none;
@@ -122,10 +153,26 @@ body {
 }
 
 /* Update button styles */
-#update, #sync, #count {
+#update, #count, #print, #back{
     align-items: center;
     background-color: #4caf50;
     margin: 5px;
+}
+#sync, #print, #details {
+    background-color: #4caf50;
+    margin: 5px;
+    margin-right: 100px;
+    display: block;
+    overflow:hidden;
+    width: 100%;
+}
+#reset, #back, #share{
+    background-color: #005703;
+    margin: 5px;
+    margin-left: 100px;
+    display: block;
+    overflow:hidden;
+    width: 100%;
 }
 
 
@@ -143,6 +190,10 @@ body {
 .view-entries:hover {
     background-color: #5a6268;
 }
+ol li{
+    margin-left: 70px;
+    justify-content: center;
+}
 
 /* Media queries for tablet and smartphone */
 @media only screen and (max-width: 768px) {
@@ -156,5 +207,21 @@ body {
     }
     #overall{
         margin-left: 0px;
+    }
+    #sync {
+        background-color: #4caf50;
+        margin: 5px;
+        margin-right: 50px;
+        display: block;
+        overflow:hidden;
+        width: 100%;
+    }
+    #reset {
+        background-color: #ff0000;
+        margin: 5px;
+        margin-left: 50px;
+        display: block;
+        overflow:hidden;
+        width: 100%;
     }
 }

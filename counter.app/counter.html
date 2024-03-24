@@ -9,21 +9,112 @@
 </head>
 <body>
     <div class="containerA">
-    <h2 class="appHead">COUNTING APP</h2>
-    <button class="btn" id="sync">SYNC</button>
-    <div class="container">
-        <div class="tabs" id="current">
-            <h2 class="heading">CURRENT</h2>
-            <h1 id="countValue">0</h1>
-            <button class="btn" id="count">COUNT</button>
+        <h2 class="appHead">COUNTING APP</h2>
+        <div class="containerSR">
+            <button class="btn" id="sync">SYNC</button>
+            <button class="btn" id="reset">RESET</button>
         </div>
-        <div class="tabs" id="overall">
-            <h2 class="heading">OVERALL</h2>
-            <h1 id="oValue">0</h1>
-            <button class="btn" id="update">UPDATE</button>
+        <div class="container">
+            <div class="tabs" id="current">
+                <h2 class="heading">CURRENT</h2>
+                <h1 id="countValue">0</h1>
+                <button class="btn" id="count">COUNT</button>
+            </div>
+            <div class="tabs" id="overall">
+                <h2 class="heading">OVERALL</h2>
+                <h1 id="oValue">0</h1>
+                <button class="btn" id="update">UPDATE</button>
+            </div>
         </div>
+        <button class="btn" id="prev">View Previous Entries</button>
     </div>
-    <button class="btn" id="prev">View Previous Entries</button>
+    <div class="previewContainer">
+        <div class="containerDS">
+            <button class="btn" id="details">Details</button>
+            <button class="btn" id="share">Share</button>
+        </div>
+        <div class="printContent">
+            <div class="heading">
+                <h2 id="listTitle">List TItle</h2>
+            </div>
+            <div class="figureContent" id="printContent">
+                <div class="countDiv" id="periodicCount">
+                    <h2 class="heading">Periodic Counts:</h2>
+                    <ol class="valueList" id="periodic">
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                    </ol>
+                </div>
+                <div class="countDiv" id="overallCount">
+                    <h2 class="heading">Cummulative Counts:</h2>
+                    <ol class="valueList" id="cumm">
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                        <li>30</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="containerPB">
+            <button class="btn" id="print">Print</button>
+            <button class="btn" id="back">Back</button>
+        </div>
+
     </div>
 </body>
 </html>
