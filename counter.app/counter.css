@@ -193,6 +193,7 @@ body {
 ol li{
     margin-left: 70px;
     justify-content: center;
+    font-size: 25px;
 }
 
 /* Media queries for tablet and smartphone */
@@ -223,5 +224,20 @@ ol li{
         display: block;
         overflow:hidden;
         width: 100%;
+    }
+}
+@media print{
+    body *{
+        visibility:hidden;
+    }
+    #printContent, #printContent *{
+        visibility: visible;
+        top:5%;
+        left:18%;
+    }
+    #printContent{
+        position: absolute;
+        justify-content: center;
+        align-items: center;
     }
 }

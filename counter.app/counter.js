@@ -66,6 +66,9 @@ function reset(){
     document.querySelector("#oValue").innerHTML = localStorage.getItem("#oValue");
     unsync();
 }
+function cPrint(){
+    print();
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelector("#countValue").innerHTML = localStorage.getItem("#countValue");
@@ -75,5 +78,11 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector("#update").onclick = update;
     document.querySelector("#sync").onclick = sync;
     document.querySelector("#reset").onclick = reset;
-
+    document.querySelector("#print").onclick = cPrint;
 });
+document.addEventListener("keyup", (e)=>{
+    if(e.key==="PrintScreen"){
+        navigator.clipboard.writeText("");
+        alert("Screenshots Disabled");
+    }
+})
