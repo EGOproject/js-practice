@@ -29,8 +29,7 @@ body {
     align-items: center;
 }
 .previewContainer, .printContent{
-    /* position: absolute; */
-    /* max-width: 6000px; */
+    /* position: absolute;    */
     padding: 20px;
     background-color: #ffffff;
     border-radius: 20px;
@@ -38,6 +37,14 @@ body {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+}
+.previewContainer {
+    position: absolute;
+    z-index: 1; 
+}
+.printContent * {
+    position: absolute;
+    /* z-index: -1; */
 }
 .container {
     /* position: absolute; */
@@ -193,7 +200,7 @@ body {
 ol li{
     margin-left: 70px;
     justify-content: center;
-    font-size: 25px;
+    font-size: 15px;
 }
 
 /* Media queries for tablet and smartphone */
@@ -230,7 +237,7 @@ ol li{
     body *{
         visibility:hidden;
     }
-    #printContent, #printContent *{
+    #printContent, #printContent *{      
         visibility: visible;
         top:5%;
         left:18%;
@@ -240,4 +247,7 @@ ol li{
         justify-content: center;
         align-items: center;
     }
+    ol li{
+    font-size: 25px;
+}
 }

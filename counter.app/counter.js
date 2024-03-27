@@ -31,6 +31,9 @@ function sync() {
         document.querySelector("#sync").innerHTML = "UNSYNC";
         document.querySelector("#update").disabled = true;
         document.querySelector("#update").style.visibility= 'hidden';
+        const newOvalue = parseFloat(localStorage.getItem("#countValue")) + parseFloat(localStorage.getItem("#oValue"));
+        localStorage.setItem("#oValue", newOvalue);
+        document.querySelector("#oValue").innerHTML = newOvalue;
         document.querySelector("#count").onclick = () => {
             count();
             syncUpdate();
@@ -39,20 +42,21 @@ function sync() {
     } else{
         document.querySelector("#sync").innerHTML = "SYNC";
         localStorage.setItem("#countValue", 0);
+        document.querySelector("#countValue").innerHTML = 0;
         document.querySelector("#countValue").innerHTML = '0';
         document.querySelector("#count").onclick = count;
         document.querySelector("#update").disabled = false;
         document.querySelector("#update").style.visibility= 'visible';
     }
 }
-function unsync(){
-    document.querySelector("#sync").innerHTML = "SYNC";
-    localStorage.setItem("#countValue", 0);
-    document.querySelector("#countValue").innerHTML = '0';
-    document.querySelector("#count").onclick = count;
-    document.querySelector("#update").disabled = false;
-    document.querySelector("#update").style.visibility= 'visible';
-}
+// function unsync(){
+//     document.querySelector("#sync").innerHTML = "SYNC";
+//     localStorage.setItem("#countValue", 0);
+//     document.querySelector("#countValue").innerHTML = '0';
+//     document.querySelector("#count").onclick = count;
+//     document.querySelector("#update").disabled = false;
+//     document.querySelector("#update").style.visibility= 'visible';
+// }
 function syncUpdate(){
     const newOvalue = 1 + parseFloat(localStorage.getItem("#oValue"));
     document.querySelector("#oValue").innerHTML = newOvalue;
@@ -69,11 +73,18 @@ function reset(){
 function cPrint(){
     print();
 }
-
+function previewScreen(){
+    document.querySelector("#previewContainer").style.display = "block";
+}
+function counterScreen(){
+    document.querySelector("#previewContainer").style.display = "none";
+}
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelector("#countValue").innerHTML = localStorage.getItem("#countValue");
     document.querySelector("#oValue").innerHTML = localStorage.getItem("#oValue");
-    
+    document.querySelector("#prev").addEventListener("click", previewScreen);
+    document.querySelector("#back").addEventListener("click", counterScreen);
+    document.querySelector("#print").addEventListener("click", printContent);
     document.querySelector("#count").onclick = count;
     document.querySelector("#update").onclick = update;
     document.querySelector("#sync").onclick = sync;
