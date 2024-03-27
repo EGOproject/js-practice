@@ -8,9 +8,7 @@ if (!localStorage.getItem("#countValue")) {
 if (!localStorage.getItem("#oValue")) {
     localStorage.setItem( "#oValue", 0 );
 }
-// }else{
-//     document.querySelector("#countValue").innerHTML = localStorage.getItem("#countValue");
-// }
+
 function count() {
     let countValue = localStorage.getItem("#countValue");
     countValue ++;
@@ -42,21 +40,13 @@ function sync() {
     } else{
         document.querySelector("#sync").innerHTML = "SYNC";
         localStorage.setItem("#countValue", 0);
-        document.querySelector("#countValue").innerHTML = 0;
         document.querySelector("#countValue").innerHTML = '0';
         document.querySelector("#count").onclick = count;
         document.querySelector("#update").disabled = false;
         document.querySelector("#update").style.visibility= 'visible';
     }
 }
-// function unsync(){
-//     document.querySelector("#sync").innerHTML = "SYNC";
-//     localStorage.setItem("#countValue", 0);
-//     document.querySelector("#countValue").innerHTML = '0';
-//     document.querySelector("#count").onclick = count;
-//     document.querySelector("#update").disabled = false;
-//     document.querySelector("#update").style.visibility= 'visible';
-// }
+
 function syncUpdate(){
     const newOvalue = 1 + parseFloat(localStorage.getItem("#oValue"));
     document.querySelector("#oValue").innerHTML = newOvalue;
@@ -68,16 +58,20 @@ function reset(){
     localStorage.setItem( "#oValue", 0 );
     document.querySelector("#countValue").innerHTML = localStorage.getItem("#countValue");
     document.querySelector("#oValue").innerHTML = localStorage.getItem("#oValue");
-    unsync();
+    document.querySelector("#sync").innerHTML = "SYNC";
+    document.querySelector("#update").disabled = false;
+    document.querySelector("#update").style.visibility= 'visible';
 }
 function cPrint(){
     print();
 }
 function previewScreen(){
-    document.querySelector("#previewContainer").style.display = "block";
+    document.querySelector(".previewContainer").style.visibility = "visible";
+
 }
 function counterScreen(){
-    document.querySelector("#previewContainer").style.display = "none";
+    document.querySelector(".previewContainer").style.visibility = "hidden";
+
 }
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelector("#countValue").innerHTML = localStorage.getItem("#countValue");
@@ -90,6 +84,8 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector("#sync").onclick = sync;
     document.querySelector("#reset").onclick = reset;
     document.querySelector("#print").onclick = cPrint;
+    document.querySelector("#prev").onclick = previewScreen;
+    document.querySelector("#back").onclick = counterScreen;
 });
 document.addEventListener("keyup", (e)=>{
     if(e.key==="PrintScreen"){
