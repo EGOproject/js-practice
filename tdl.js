@@ -14,10 +14,9 @@ document.addEventListener("DOMContentLoaded", function (){
         const task = document.querySelector("#itext").value;
         const li = document.createElement("li");
         li.innerHTML=task;
-
         document.querySelector("#tasks").append(li);
         document.querySelector("#itext").value="";
         document.querySelector("#submit").disabled = true;
         return false;
-        }
+    }
 });

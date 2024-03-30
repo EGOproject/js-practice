@@ -193,4 +193,3 @@ document.addEventListener("DOMContentLoaded", function() {
     // Call the uploadImg function to enable image upload functionality
     uploadImg();
 });
-
