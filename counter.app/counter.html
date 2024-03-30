@@ -28,12 +28,13 @@
         </div>
         <button class="btn" id="prev">View Previous Entries</button>
     </div>
-    <div class="dForm">
-        <img src="blankDp.png" alt="Chose Profile Picture">
-        <input type="text" id="userName"  placeholder="Enter Name eg. John Doe" autofocus/>
-        <label for="dImg" class="ubtn">Upload Image</label>
+    <div class="dForm" id="dForm">
+        <img src="blankDp.png" alt="Chose Profile Picture" id="PP">
+        <input type="text" id="userName"  placeholder="Enter Name eg. John Doe" autofocus autocomplete="name"/>
+        <input type="text" id="countName"  placeholder="what are you counting?" autocomplete="name"/>
         <input type="file" id="dImg" accept="image/jpeg, image/png, image/jpg" style="display: none;">
-        <!-- <button class="btn" id="dBack">Back</button> -->
+        <label for="dImg" class="btn" id="ubtn">Upload Image</label>
+        <button type="submit" class="btn" id="dBack">Done</button>
     </div>
     <div class="previewContainer">
         <div class="containerDS">
@@ -48,26 +49,6 @@
                 <div class="countDiv" id="periodicCount">
                     <h2 class="heading">Periodic Counts:</h2>
                     <ol class="valueList" id="periodic">
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
                         <li>30</li>
                         <li>30</li>
                         <li>30</li>
@@ -93,28 +74,12 @@
                         <li>30</li>
                         <li>30</li>
                         <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
-                        <li>30</li>
                     </ol>
                 </div>
+            </div>
+            <div class="reporter">
+                <img src="blankDp.png" alt="Chose Profile Picture" id="rPP">
+                <h3 id="reportUserName">John Doe</h3>
             </div>
         </div>
         <div class="containerPB">

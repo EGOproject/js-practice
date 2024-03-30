@@ -166,11 +166,20 @@ body {
     width: 100%;
 }
 #dBack {
-    
+    color: #ffffff;
+    background-color: #005703;
+    padding: 10px;
+    margin: 0px;
+    border-radius: 20px;
+    display: inline-block;
+}
+#ubtn {
     color: #ffffff;
     background-color: #4caf50;
-    margin: 5px;
-    width: 100%;
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 16px;
+    /* display: inline-block; */
 }
 #reset, #back, #share{
     background-color: #005703;
@@ -203,6 +212,7 @@ ol li{
 }
 /* Add this CSS to style the new feature */
 .dForm {
+    position: absolute;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 20px;
@@ -212,6 +222,17 @@ ol li{
     align-items: center;
     max-width: 300px; /* Adjust as needed */
     margin: 20px auto; /* Center the form horizontally */
+    z-index: 5;
+}
+#blur{
+    z-index: 4;
+    display: block;
+    width:100%;
+    height: 100%;
+    position: absolute;
+}
+#dForm{
+    visibility: hidden;
 }
 
 /* Profile picture styles */
@@ -220,6 +241,22 @@ ol li{
     height: 150px; /* Adjust as needed */
     border-radius: 50%;
     margin-bottom: 20px;
+}
+.reporter{
+    width: 100%;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.reporter h3{
+    font-size: 25px;
+}
+img {
+    width: 80px; /* Adjust as needed */
+    height: 80px; /* Adjust as needed */
+    border-radius: 50%;
+    margin-bottom: 5px;
 }
 
 /* Input field styles */
@@ -260,12 +297,11 @@ ol li{
     background-color: #45a049;
 }
 
-
 /* Media queries for tablet and smartphone */
 @media only screen and (max-width: 768px) {
     .container {
         flex-direction: column;
-        max-width: 90%;
+        max-width: fit-content;
         max-height: fit-content;
     }
     #current{
@@ -286,6 +322,17 @@ ol li{
         background-color: #ff0000;
         margin: 5px;
         margin-left: 50px;
+        display: block;
+        overflow:hidden;
+        width: 100%;
+    }
+    #share{
+        visibility: hidden;
+    }
+    #details {
+        background-color: #4caf50;
+        margin: 5px;
+        margin-left: 200px;
         display: block;
         overflow:hidden;
         width: 100%;
