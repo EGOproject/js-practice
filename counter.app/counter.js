@@ -2,35 +2,35 @@ var syncButton = document.querySelector("#sync");
 var countButton = document.querySelector("#count");
 var updateButton = document.querySelector("#update");
 
-if (!localStorage.getItem("#countValue")) {
-    localStorage.setItem( "#countValue", 0 );
+if (!localStorage.getItem("countValue")) {
+    localStorage.setItem( "countValue", 0 );
 }
-if (!localStorage.getItem("#oValue")) {
-    localStorage.setItem( "#oValue", 0 );
+if (!localStorage.getItem("oValue")) {
+    localStorage.setItem( "oValue", 0 );
 }
 
 function count() {
-    let countValue = localStorage.getItem("#countValue");
+    let countValue = localStorage.getItem("countValue");
     countValue ++;
     document.querySelector("#countValue").innerHTML = countValue;
-    localStorage.setItem("#countValue", countValue);
+    localStorage.setItem("countValue", countValue);
 }
 function update(){
-    printCvalue = localStorage.getItem("#countValue");
-    const newOvalue = parseFloat(localStorage.getItem("#countValue")) + parseFloat(localStorage.getItem("#oValue"));
+    listUpdate().addCVtoPL()
+    const newOvalue = parseFloat(localStorage.getItem("countValue")) + parseFloat(localStorage.getItem("oValue"));
     document.querySelector("#oValue").innerHTML = newOvalue;
-    localStorage.setItem("#oValue",newOvalue);
-    localStorage.setItem("#countValue",0);
-    document.querySelector("#countValue").innerHTML = localStorage.getItem("#countValue");
-    printOvalue = newOvalue;
+    localStorage.setItem("oValue",newOvalue);
+    localStorage.setItem("countValue",0);
+    document.querySelector("#countValue").innerHTML = localStorage.getItem("countValue");
+    listUpdate().addOVtoCL()
 }
 function sync() {
     if(document.querySelector("#sync").innerHTML === "SYNC") {
         document.querySelector("#sync").innerHTML = "UNSYNC";
         document.querySelector("#update").disabled = true;
         document.querySelector("#update").style.visibility= 'hidden';
-        const newOvalue = parseFloat(localStorage.getItem("#countValue")) + parseFloat(localStorage.getItem("#oValue"));
-        localStorage.setItem("#oValue", newOvalue);
+        const newOvalue = parseFloat(localStorage.getItem("countValue")) + parseFloat(localStorage.getItem("oValue"));
+        localStorage.setItem("oValue", newOvalue);
         document.querySelector("#oValue").innerHTML = newOvalue;
         document.querySelector("#count").onclick = () => {
             count();
@@ -38,8 +38,10 @@ function sync() {
         }
         
     } else{
+        listUpdate().addOVtoCL()
+        listUpdate().addCVtoPL()
         document.querySelector("#sync").innerHTML = "SYNC";
-        localStorage.setItem("#countValue", 0);
+        localStorage.setItem("countValue", 0);
         document.querySelector("#countValue").innerHTML = '0';
         document.querySelector("#count").onclick = count;
         document.querySelector("#update").disabled = false;
@@ -48,19 +50,19 @@ function sync() {
 }
 
 function syncUpdate(){
-    const newOvalue = 1 + parseFloat(localStorage.getItem("#oValue"));
+    const newOvalue = 1 + parseFloat(localStorage.getItem("oValue"));
     document.querySelector("#oValue").innerHTML = newOvalue;
-    localStorage.setItem("#oValue",newOvalue);
-    document.querySelector("#countValue").innerHTML = localStorage.getItem("#countValue");
+    localStorage.setItem("oValue",newOvalue);
+    document.querySelector("#countValue").innerHTML = localStorage.getItem("countValue");
 }
 function reset(){
-    localStorage.setItem( "#countValue", 0 );
-    localStorage.setItem( "#oValue", 0 );
+    localStorage.setItem( "countValue", 0 );
+    localStorage.setItem( "oValue", 0 );
     localStorage.setItem( "username", "" );
     localStorage.setItem( "countname", "" );
     localStorage.setItem( "image", "" );
-    document.querySelector("#countValue").innerHTML = localStorage.getItem("#countValue");
-    document.querySelector("#oValue").innerHTML = localStorage.getItem("#oValue");
+    document.querySelector("#countValue").innerHTML = localStorage.getItem("countValue");
+    document.querySelector("#oValue").innerHTML = localStorage.getItem("oValue");
     document.querySelector("#sync").innerHTML = "SYNC";
     document.querySelector("#update").disabled = false;
     document.querySelector("#update").style.visibility= 'visible';
@@ -111,10 +113,29 @@ function uploadImg() {
     }
 }
 
+function listUpdate(){
+    // Function to add values to the lists
+    function addCVtoPL() {
+        const lcv = localStorage.getItem("countValue");
+        const cli = document.createElement("li");
+        cli.innerHTML= lcv;
+        document.querySelector("#periodic").append(cli);
+    }
+    function addOVtoCL() {
+        const lov = localStorage.getItem("oValue");
+        const oli = document.createElement("li");
+        oli.innerHTML= lov;
+        document.querySelector("#cumm").append(oli);
+    }
+    return{
+        addCVtoPL: addCVtoPL,
+        addOVtoCL: addOVtoCL
+    };
+}
 
 document.addEventListener("DOMContentLoaded", function() {
-    document.querySelector("#countValue").innerHTML = localStorage.getItem("#countValue");
-    document.querySelector("#oValue").innerHTML = localStorage.getItem("#oValue");
+    document.querySelector("#countValue").innerHTML = localStorage.getItem("countValue");
+    document.querySelector("#oValue").innerHTML = localStorage.getItem("oValue");
     document.querySelector("#prev").onclick = previewScreen;
     document.querySelector("#back").onclick = counterScreen;
     document.querySelector("#print").onclick = printContent;
